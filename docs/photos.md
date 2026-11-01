@@ -11,7 +11,7 @@ For every room, in this order:
 3. A file in `/config/www/images/rooms/` named after the area. The name is made lower case with hyphens: `Living room` → `living-room.jpg`. The panel tries `.jpg`, `.jpeg`, `.png` and `.webp`, and also the area's id (handy when you renamed an area).
 4. Nothing found: a calm gradient.
 
-The home view uses `/config/www/images/rooms/home.jpg`, or the photo chosen in **Settings → General → Home page photo**.
+The home view uses `/config/www/images/rooms/home.jpg`, or the photo chosen in **Settings → General → Home page photo**. You can also set **Home page photo · evening** and **Home page photo · night**. HaCasa uses the sun entity: the evening photo appears after sunset during civil twilight, and the night photo once twilight ends. At dawn and during the day it uses the daytime photo. If an evening or night photo is not set, it falls back to the daytime photo (the night photo also falls back to the evening photo when available).
 
 Files in `/config/www/` are served by Home Assistant under `/local/`, so `/config/www/images/rooms/kitchen.jpg` is `/local/images/rooms/kitchen.jpg` in the settings.
 

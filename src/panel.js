@@ -259,7 +259,13 @@ class HacasaNova extends LitElement {
     await this.saveUser({ presets: all }); this.popup = { type: "presets", roomId: r.id, manage: true };
   }
   visible(list) { return list.filter(e => !isHidden(this, e.id)); }
-  get homeImage() { return this.config.pages?.home?.image || this.config.homeImage || ""; }
+  get homeImage() {
+    const day = this.config.pages?.home?.image || this.config.homeImage || "";
+    const sun = this.hass?.states?.["sun.sun"], attrs = sun?.attributes || {}, elevation = num(attrs.elevation);
+    if (sun?.state !== "below_horizon" || attrs.rising !== false || elevation == null) return day;
+    if (elevation > -6) return this.config.homeImageEvening || day;
+    return this.config.homeImageNight || this.config.homeImageEvening || day;
+  }
   /* ---------- per-page config: title, image, card order/visibility, ticker lines ---------- */
   pageCfg(key) { return this.config.pages?.[key] || {}; }
   /** cards in the configured order: keys listed in `order` first, the rest in their default position */

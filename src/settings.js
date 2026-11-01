@@ -126,6 +126,8 @@ export function renderSettings(p) {
         ${d.navMode === "floors" ? field(t("Menu op telefoon"), html`<select @change=${e => set("navExpand", e.target.value ? true : undefined)}><option value="" ?selected=${!d.navExpand}>${t("verdieping uitklappen met tikken")}</option><option value="1" ?selected=${!!d.navExpand}>${t("alle verdiepingen uitgeklapt")}</option></select>`, t("hoe de kamers in het menu op telefoon en tablet staan")) : nothing}
         ${field(t("Kamerfoto"), text(d.roomImage, v => set("roomImage", v), "/local/images/rooms/{slug}.jpg"), t("{slug} wordt de ruimtenaam · per kamer aanpasbaar bij Pagina's", { slug: "{slug}" }))}
         ${field(t("Foto startpagina"), text(d.homeImage, v => set("homeImage", v), "/local/images/rooms/home.jpg"))}
+        ${field(t("Foto startpagina · avond"), text(d.homeImageEvening, v => set("homeImageEvening", v), "/local/images/rooms/home-evening.jpg"))}
+        ${field(t("Foto startpagina · nacht"), text(d.homeImageNight, v => set("homeImageNight", v), "/local/images/rooms/home-night.jpg"), t("zon bepaalt het moment: avond tijdens de schemering na zonsondergang, nacht daarna; bij zonsopkomst de dagfoto"))}
         ${field(t("Media-achtergrond"), text(d.mediaIdleImage, v => set("mediaIdleImage", v), "/local/images/music/idle-media.gif"), t("op mediakaarten als er niets speelt; leeg = geen"))}
         ${field(t("Animaties"), check(!d.noMotion, v => set("noMotion", v ? undefined : true)), t("overgangen en kleine bewegingen; uit = alles direct, handig op een trage wandtablet"))}`)}
       ${sec(t("Gedrag"), "", html`

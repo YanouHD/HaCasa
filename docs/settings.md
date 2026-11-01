@@ -35,7 +35,7 @@ When you use the [dashboard card](installation.md#2b-dashboard-card), its `confi
 | `title` | title top left |
 | `language` | a language code such as `en`, `nl` or `de`, see [Language](extras.md#language) (leave out to follow Home Assistant) |
 | `rooms` | `auto` or a list of area ids or names, in navigation order |
-| `roomImage`, `homeImage` | photo paths; `{slug}` is replaced by the room name |
+| `roomImage`, `homeImage`, `homeImageEvening`, `homeImageNight` | photo paths; `{slug}` is replaced by the room name in `roomImage` |
 | `home.weather`, `home.climate`, `home.alarm` | entity ids for the home view |
 | `home.temperature`, `home.humidity` | sensors for the header (default: average of the rooms) |
 | `home.scenes` | list of scene ids |
