@@ -16,7 +16,7 @@ class HacasaNovaCard extends HTMLElement {
     if (this._el) return;
     const root = this.attachShadow({ mode: "open" });
     const style = document.createElement("style");
-    style.textContent = `:host{display:block;position:relative;height:calc(100vh - var(--header-height, 56px));height:calc(100dvh - var(--header-height, 56px));overflow:hidden}
+    style.textContent = `:host{display:block;position:relative;height:100%;overflow:hidden}
       ${TAG}{display:block;height:100%}`;
     const el = document.createElement(TAG);
     el.hashMode = true;
