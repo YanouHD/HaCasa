@@ -29,7 +29,7 @@ From top to bottom:
 
 ![Room page](assets/screenshots/room.png)
 
-Each room shows its photo, its temperature and humidity, a notification line for that room (lights on, open windows, what is playing) and, by default, a card for every light, plug (switches, power strips, plugs with a meter) and motion sensor in the area that is reachable. Everything else in the area (thermostat, media, covers, fans, locks, doors and windows, cameras, scenes, light scenes, air quality …) you add through [edit mode](#edit-mode) → *Add card*, where the room's own entities are listed first, and remove with the bin. A room with nothing to show by default and nothing added is left out of the navigation until you list it under *Settings → Rooms*. See [Cards](cards.md) for each type.
+Each room shows its photo, its temperature and humidity, a notification line for that room (lights on, open windows, what is playing) and, by default, a card for every light, plug (switches, power strips, plugs with a meter) and motion sensor in the area that is reachable. The temperature and humidity use the sensors selected in the area's Home Assistant settings; when no sensor is selected, HaCasa shows the average of the corresponding sensors assigned to that area. Everything else in the area (thermostat, media, covers, fans, locks, doors and windows, cameras, scenes, light scenes, air quality …) you add through [edit mode](#edit-mode) → *Add card*, where the room's own entities are listed first, and remove with the bin. A room with nothing to show by default and nothing added is left out of the navigation until you list it under *Settings → Rooms*. See [Cards](cards.md) for each type.
 
 ## Edit mode
 

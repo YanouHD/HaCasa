@@ -13,7 +13,7 @@ The first time a user opens HaCasa Nova, a four-step setup appears. Every step c
 
 A room is a Home Assistant **area**. Every entity assigned to that area, directly or through its device, is placed on the room page as a card. To move a lamp to another room, change its area in Home Assistant.
 
-Entities with the *diagnostic* or *config* category are left out (except batteries, which feed the Attention list). Room temperature and humidity come from the area's temperature and humidity sensors.
+Entities with the *diagnostic* or *config* category are left out (except batteries, which feed the Attention list). A room uses the temperature and humidity sensors selected in its Home Assistant area settings. If no sensor is selected, it shows the average of the corresponding sensors assigned to that area.
 
 If you use **floors** in Home Assistant, the navigation can group rooms per floor: **Settings → General → Navigation → per floor**.
 

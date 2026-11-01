@@ -114,6 +114,7 @@ function classify(list, config = {}, hass = {}) {
 }
 
 const avg = (list) => { const v = list.map(e => num(e.state?.state)).filter(x => x != null); return v.length ? v.reduce((a, b) => a + b, 0) / v.length : null; };
+const areaValue = (hass, entityId, sensors) => num(hass.states[entityId]?.state) ?? avg(sensors);
 const latest = (list) => list.map(e => e.state).filter(Boolean).sort((a, b) => new Date(b.last_changed) - new Date(a.last_changed))[0];
 
 /* One TV often shows up through several integrations (Android TV Remote, Bravia, Cast, Apple TV), each with its own
@@ -151,7 +152,7 @@ export function buildRooms(hass, config) {
       // photo file named after the area name, or else after the area id (stays put when the area is renamed)
       images: pg.image || a.picture || !config.roomImage ? null : [...new Set([s, slug(a.area_id)])].map(x => config.roomImage.replace("{slug}", x)),
       ents,
-      temp: avg(ents.temp), hum: avg(ents.hum),
+      temp: areaValue(hass, a.temperature_entity_id, ents.temp), hum: areaValue(hass, a.humidity_entity_id, ents.hum),
       motion: latest(ents.motion),
       motionOn: ents.motion.filter(e => !config.home?.bannerSensors || config.home.bannerSensors.includes(e.id)).some(e => isOn(e.state)),
       lightsOn: ents.lights.filter(e => isOn(e.state)).length,
